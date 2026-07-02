@@ -1,0 +1,153 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrownGlow — Premium Online Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF3EC;--blush:#F4D9DE;--rose:#B5354A;--gold:#C9A24B;--ink:#2B2024;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;font-weight:300;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:rgba(251,243,236,.95);border-bottom:1px solid rgba(201,162,75,.2);z-index:100;}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;}
+.logo span{color:var(--rose);font-style:italic;}
+.nav-cta{background:var(--rose);color:#fff;padding:8px 18px;border-radius:30px;font-size:.8rem;}
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 6% 60px;background:radial-gradient(circle at 20% 30%,rgba(201,162,75,.15),transparent 45%),radial-gradient(circle at 80% 70%,rgba(181,53,74,.1),transparent 50%);}
+.eyebrow{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);font-weight:500;display:block;margin-bottom:16px;}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;margin-bottom:20px;}
+.hero h1 em{color:var(--rose);font-style:italic;}
+.hero p{font-size:.95rem;color:#5b4a4f;max-width:440px;margin:0 auto 30px;line-height:1.7;}
+.line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn1{background:var(--rose);color:#fff;padding:13px 28px;border-radius:40px;font-size:.88rem;}
+.btn2{border:1px solid var(--gold);color:var(--ink);padding:12px 24px;border-radius:40px;font-size:.88rem;}
+section{padding:80px 6%;}
+.sh{text-align:center;margin-bottom:50px;}
+.sh .ey{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;}
+.sh h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-top:8px;}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;max-width:800px;margin:0 auto;}
+.cat{background:var(--blush);border-radius:14px;padding:24px 12px;text-align:center;}
+.cat .icon{font-size:2rem;margin-bottom:8px;}
+.cat .label{font-family:'Playfair Display',serif;font-size:.9rem;}
+.products{background:var(--blush);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1200px;margin:0 auto;}
+.card{background:var(--cream);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(43,32,36,.07);}
+.card-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:linear-gradient(135deg,var(--blush),#f0c0c8);}
+.card-body{padding:16px 18px;}
+.card-body h3{font-size:.95rem;margin-bottom:4px;}
+.card-body p{font-size:.78rem;color:#6b585d;margin-bottom:10px;line-height:1.5;}
+.pr{display:flex;justify-content:space-between;align-items:center;}
+.price{font-family:'Playfair Display',serif;color:var(--rose);font-size:.95rem;}
+.old{font-size:.68rem;text-decoration:line-through;color:#999;display:block;}
+.badge{font-size:.62rem;background:#e74c3c;color:#fff;padding:2px 5px;border-radius:6px;}
+.buy{font-size:.72rem;color:var(--rose);border-bottom:1px solid var(--gold);padding-bottom:1px;white-space:nowrap;}
+.steps{max-width:800px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;}
+.step{text-align:center;}
+.step .n{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Playfair Display',serif;color:var(--rose);}
+.step h3{font-size:.9rem;margin-bottom:6px;}
+.step p{font-size:.8rem;color:#6b585d;line-height:1.5;}
+.pay{background:var(--ink);color:var(--cream);}
+.pay .sh h2{color:var(--cream);}
+.pay .sh .ey{color:#E6D2A0;}
+.paycard{max-width:360px;margin:0 auto;border:1px solid rgba(201,162,75,.35);border-radius:16px;padding:28px;text-align:center;}
+.paycard .lbl{font-size:.7rem;letter-spacing:.08em;color:#E6D2A0;text-transform:uppercase;}
+.paycard .num{font-family:'Playfair Display',serif;font-size:1.5rem;margin:8px 0 4px;}
+.paycard .nm{font-size:.82rem;color:#E6D2A0;margin-bottom:8px;}
+.paycard .note{font-size:.72rem;color:#cbb;opacity:.75;}
+.contact{text-align:center;}
+.crow{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:36px;}
+.ci h3{font-size:.88rem;margin-bottom:5px;}
+.ci p{font-size:.8rem;color:#6b585d;}
+footer{text-align:center;padding:30px 6%;background:var(--blush);font-size:.75rem;color:#7a6166;}
+footer b{font-family:'Playfair Display',serif;font-size:1rem;display:block;margin-bottom:6px;}
+.wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 8px 20px rgba(0,0,0,.2);z-index:200;animation:pulse 2.4s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45);}70%{box-shadow:0 0 0 12px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Crown<span>Glow</span></div>
+  <a class="nav-cta" href="https://wa.me/923185322324">WhatsApp</a>
+</nav>
+<section class="hero">
+  <div>
+    <span class="eyebrow">CrownGlow — Premium Store</span>
+    <h1>Premium quality,<br><em>delivered</em> to your door.</h1>
+    <div class="line"></div>
+    <p>Cosmetics, electronics, accessories & more — all premium quality. Order on WhatsApp, pay via Easypaisa.</p>
+    <div class="btns">
+      <a class="btn1" href="https://wa.me/923185322324">Order on WhatsApp →</a>
+      <a class="btn2" href="#products">View Products</a>
+    </div>
+  </div>
+</section>
+<section id="categories">
+  <div class="sh"><span class="ey">What We Offer</span><h2>Shop by Category</h2></div>
+  <div class="cat-grid">
+    <div class="cat"><div class="icon">💄</div><div class="label">Cosmetics</div></div>
+    <div class="cat"><div class="icon">👗</div><div class="label">Clothes</div></div>
+    <div class="cat"><div class="icon">💍</div><div class="label">Accessories</div></div>
+    <div class="cat"><div class="icon">🧴</div><div class="label">Skincare</div></div>
+    <div class="cat"><div class="icon">📱</div><div class="label">Electronics</div></div>
+  </div>
+</section>
+<section class="products" id="products">
+  <div class="sh"><span class="ey">Featured Products</span><h2>Bestsellers</h2></div>
+  <div class="grid">
+    <div class="card"><div class="card-img">👜</div><div class="card-body"><h3>Cosmetic Organizer Bag</h3><p>Waterproof PU travel makeup pouch with zipper.</p><div class="pr"><span class="price"><span class="old">Rs 1,500</span>Rs 790 <span class="badge">-47%</span></span><a class="buy" href="https://s.daraz.pk/s.cwLHF?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🎧</div><div class="card-body"><h3>Bluetooth Earbuds V5.0</h3><p>Touch sensor, built-in mic, 10m range, charging case.</p><div class="pr"><span class="price"><span class="old">Rs 4,000</span>Rs 723 <span class="badge">-82%</span></span><a class="buy" href="https://s.daraz.pk/s.cwLh6?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🎤</div><div class="card-body"><h3>Wireless Microphone K9</h3><p>Type C / iOS / Android. 2 mic + 3 receiver.</p><div class="pr"><span class="price"><span class="old">Rs 1,398</span>Rs 799 <span class="badge">-43%</span></span><a class="buy" href="https://s.daraz.pk/s.cwp6e?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">💄</div><div class="card-body"><h3>13 Pcs Makeup Brush Set</h3><p>Soft hair brushes — powder, eyeshadow, contour & more!</p><div class="pr"><span class="price"><span class="old">Rs 800</span>Rs 330 <span class="badge">-59%</span></span><a class="buy" href="https://s.daraz.pk/s.cwpPI?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🧴</div><div class="card-body"><h3>B&B Rice Skincare Glow Kit</h3><p>4-in-1 Face Wash, Scrub, Mask & Serum set.</p><div class="pr"><span class="price"><span class="old">Rs 1,999</span>Rs 1,199 <span class="badge">-40%</span></span><a class="buy" href="https://s.daraz.pk/s.cwpuJ?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🧊</div><div class="card-body"><h3>Ice Cube Face Roller</h3><p>Silicone ice roller for face, eyes & neck. Reusable!</p><div class="pr"><span class="price"><span class="old">Rs 350</span>Rs 275 <span class="badge">-21%</span></span><a class="buy" href="https://s.daraz.pk/s.cwA0k?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">💡</div><div class="card-body"><h3>26cm Ring Light + Tripod</h3><p>7 feet tripod, mobile holder, 3 color modes.</p><div class="pr"><span class="price">Rs 1,350</span><a class="buy" href="https://s.daraz.pk/s.cwAcD?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">📱</div><div class="card-body"><h3>Mobile Phone Stand</h3><p>Retractable desk holder, adjustable angle.</p><div class="pr"><span class="price"><span class="old">Rs 990</span>Rs 295 <span class="badge">-70%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAff?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">👝</div><div class="card-body"><h3>Clear Travel Makeup Pouch</h3><p>Waterproof transparent bag for brushes & toiletries.</p><div class="pr"><span class="price"><span class="old">Rs 231</span>Rs 154 <span class="badge">-33%</span></span><a class="buy" href="https://s.daraz.pk/s.cwA69?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🔒</div><div class="card-body"><h3>Child Safety Fridge Lock</h3><p>Adhesive self-locking. Double press to unlock.</p><div class="pr"><span class="price"><span class="old">Rs 450</span>Rs 156 <span class="badge">-65%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAhC?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🍶</div><div class="card-body"><h3>Customize Name Thermos</h3><p>LED temperature display. Laser engraved with your name!</p><div class="pr"><span class="price"><span class="old">Rs 2,700</span>Rs 1,179 <span class="badge">-56%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAQv?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🌹</div><div class="card-body"><h3>Rose Ice Roller</h3><p>Reduces puffiness, tightens pores. Cold therapy glow!</p><div class="pr"><span class="price"><span class="old">Rs 500</span>Rs 285 <span class="badge">-43%</span></span><a class="buy" href="https://s.daraz.pk/s.cwANN?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🖤</div><div class="card-body"><h3>Blackhead Remover Strips</h3><p>10pcs charcoal nose strips. Deep pore cleansing!</p><div class="pr"><span class="price">Rs 219</span><a class="buy" href="https://s.daraz.pk/s.cwApB?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">👕</div><div class="card-body"><h3>Men's Cotton Briefs x4</h3><p>Comfortable breathable cotton. 4 colors!</p><div class="pr"><span class="price"><span class="old">Rs 299</span>Rs 99 <span class="badge">-67%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAqq?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">😴</div><div class="card-body"><h3>Sleep Eye Mask</h3><p>Soft mask, blocks light completely. Perfect for travel!</p><div class="pr"><span class="price"><span class="old">Rs 200</span>Rs 98 <span class="badge">-51%</span></span><a class="buy" href="https://s.daraz.pk/s.cwArm?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🧼</div><div class="card-body"><h3>Lux Fresh Glow Soap</h3><p>Vitamin C & Mint, water lily scent. 123g!</p><div class="pr"><span class="price"><span class="old">Rs 160</span>Rs 143 <span class="badge">-11%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAuZ?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🚪</div><div class="card-body"><h3>Door Dust Stopper</h3><p>Waterproof foam. Blocks dust, air, noise & insects!</p><div class="pr"><span class="price"><span class="old">Rs 99</span>Rs 15 <span class="badge">-85%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAwq?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🍃</div><div class="card-body"><h3>Leaf Shape Soap Holder</h3><p>Stylish drain soap dish. Suction cup base!</p><div class="pr"><span class="price"><span class="old">Rs 399</span>Rs 154 <span class="badge">-61%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAy0?cc" target="_blank">Buy →</a></div></div></div>
+    <div class="card"><div class="card-img">🪟</div><div class="card-body"><h3>3-in-1 Window Cleaner</h3><p>Sprayer + squeegee + scraper. Streak-free clean!</p><div class="pr"><span class="price"><span class="old">Rs 1,200</span>Rs 445 <span class="badge">-63%</span></span><a class="buy" href="https://s.daraz.pk/s.cwAAF?cc" target="_blank">Buy →</a></div></div></div>
+  </div>
+</section>
+<section id="order">
+  <div class="sh"><span class="ey">Simple & Easy</span><h2>How to Order</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Message Us</h3><p>Tap WhatsApp and tell us which product you want.</p></div>
+    <div class="step"><div class="n">2</div><h3>Confirm & Pay</h3><p>We confirm your order and you pay via Easypaisa.</p></div>
+    <div class="step"><div class="n">3</div><h3>Delivered!</h3><p>Your order is packed and delivered to your door.</p></div>
+  </div>
+</section>
+<section class="pay" id="payment">
+  <div class="sh"><span class="ey">Payment Method</span><h2>Easypaisa</h2></div>
+  <div class="paycard">
+    <div class="lbl">Send Payment To</div>
+    <div class="num">0345 6553532</div>
+    <div class="nm">Account Name: Khista Rahman</div>
+    <div class="note">Send payment screenshot on WhatsApp after transfer.</div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="sh"><span class="ey">Get In Touch</span><h2>Contact Us</h2></div>
+  <div class="crow">
+    <div class="ci"><h3>WhatsApp</h3><p>0318 5322324</p></div>
+    <div class="ci"><h3>Hours</h3><p>Daily 10am – 9pm</p></div>
+    <div class="ci"><h3>Location</h3><p>Mingora, Swat, Pakistan</p></div>
+    <div class="ci"><h3>Delivery</h3><p>Pakistan-wide</p></div>
+  </div>
+</section>
+<footer><b>CrownGlow</b>Premium Quality Store — Mingora, Swat © 2026</footer>
+<a class="wa" href="https://wa.me/923185322324" target="_blank">📱</a>
+</body>
+</html>
+HTMLEOF
+wc -c /mnt/user-data/outputs/index.html
